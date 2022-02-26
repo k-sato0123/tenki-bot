@@ -5,8 +5,9 @@ import json
 
 url = 'https://www.jma.go.jp/bosai/forecast/data/overview_forecast/020000.json'
 
-tenki_data = requests.get(url)
+r = requests.get(url)
+tenki_data = r.json()
 
-print(tenki_data)
-print(tenki_data.text)
-print(tenki_data.headers)
+print(tenki_data['publishingOffice'] + "発表の天気予報です。")
+print(tenki_data['targetArea'] + "の天気予報です。")
+print(tenki_data['text'])
